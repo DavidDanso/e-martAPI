@@ -9,18 +9,18 @@ from rest_framework.decorators import api_view
 def product_list(request):
     products = Product.objects.all()
     serializer = ProductSerializer(products, many=True)
-    return Response({'data': serializer.data})
+    return Response(serializer.data)
 
 
 @api_view(['GET'])
 def product_detail(request, pk):
     product = get_object_or_404(Product, pk=pk)
     serializer = ProductSerializer(product)
-    return Response({'data': serializer.data})
+    return Response(serializer.data)
 
 
 @api_view(['GET'])
 def order_list(request):
     orders = Order.objects.all()
     serializer = OrderSerializer(orders, many=True)
-    return Response({'data': serializer.data})
+    return Response(serializer.data)
